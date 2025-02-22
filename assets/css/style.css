@@ -1,0 +1,125 @@
+:root {
+  --background-dark: #121212;
+  --surface-dark: #1E1E1E;
+  --primary-blue: #2196F3;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B3B3B3;
+  --accent-hover: #64B5F6;
+  --border-color: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  padding-bottom: 80px;
+}
+
+header {
+  background-color: var(--surface-dark);
+  color: var(--text-primary);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-bottom: 5px solid var(--primary-blue);
+}
+
+header nav a {
+  margin: 0 10px;
+  color: var(--primary-blue);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--accent-hover);
+}
+
+section {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 800px;
+  background: var(--surface-dark);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+  transform: translateY(-5px);
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  border-bottom: 3px solid var(--primary-blue);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+ul li {
+  padding: 5px 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
+footer {
+  background-color: var(--surface-dark);
+  color: var(--text-primary);
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+/* Additional Styling for Header and Images */
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.education-image,
+.experience-image {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 8px;
+}
