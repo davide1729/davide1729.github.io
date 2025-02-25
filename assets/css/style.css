@@ -123,3 +123,21 @@ footer {
   margin: 1rem auto;
   border-radius: 8px;
 }
+
+#lang-toggle {
+  background: #008cff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+#lang-toggle:hover {
+  background: #ffcc00;
+  color: black;
+}
+
