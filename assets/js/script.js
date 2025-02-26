@@ -1,10 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Elements
     const langToggle = document.getElementById("lang-toggle");
+    const themeToggle = document.getElementById("theme-toggle");
     const header = document.querySelector("header");
     
     // Language state
     let currentLang = localStorage.getItem("preferredLanguage") || "en";
+    
+    // Theme state
+    let currentTheme = localStorage.getItem("preferredTheme") || "dark";
+    if (currentTheme === "light") {
+      document.body.classList.add("light-theme");
+    }
     
     // Translations dictionary
     const translations = {
@@ -14,14 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
         "education-link": "Education",
         "experience-link": "Experience",
         "skills-link": "Skills",
-        "contact-link": "Contact",
         
         // Headers
         "about-header": "About",
         "education-header": "Education",
         "experience-header": "Experience",
         "skills-header": "Skills",
-        "contact-header": "Contact",
         
         // Content
         "website-message": "Website currently in development!",
@@ -39,14 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
         "education-link": "Istruzione",
         "experience-link": "Esperienza",
         "skills-link": "Competenze",
-        "contact-link": "Contatti",
         
         // Headers
         "about-header": "Chi Sono",
         "education-header": "Istruzione",
         "experience-header": "Esperienza",
         "skills-header": "Competenze",
-        "contact-header": "Contatti",
         
         // Content
         "website-message": "Sito attualmente in sviluppo!",
@@ -67,14 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('nav a[href="#education"]').setAttribute('data-lang-key', 'education-link');
       document.querySelector('nav a[href="experience/experience.html"]').setAttribute('data-lang-key', 'experience-link');
       document.querySelector('nav a[href="#skills"]').setAttribute('data-lang-key', 'skills-link');
-      document.querySelector('nav a[href="#contact"]').setAttribute('data-lang-key', 'contact-link');
       
       // Headers
       document.querySelector('#about h2').setAttribute('data-lang-key', 'about-header');
       document.querySelector('#education h2').setAttribute('data-lang-key', 'education-header');
       document.querySelector('#experience-summary h2').setAttribute('data-lang-key', 'experience-header');
       document.querySelector('#skills h2').setAttribute('data-lang-key', 'skills-header');
-      document.querySelector('#contact h2').setAttribute('data-lang-key', 'contact-header');
       
       // Content
       document.querySelector('.header-content p:nth-of-type(1)').setAttribute('data-lang-key', 'website-message');
@@ -114,6 +115,18 @@ document.addEventListener("DOMContentLoaded", () => {
       updateLanguageButton();
     }
     
+    // Switch theme function
+    function switchTheme() {
+      if (currentTheme === "dark") {
+        document.body.classList.add("light-theme");
+        currentTheme = "light";
+      } else {
+        document.body.classList.remove("light-theme");
+        currentTheme = "dark";
+      }
+      localStorage.setItem("preferredTheme", currentTheme);
+    }
+    
     // Sticky header functionality
     function setupStickyHeader() {
       const headerHeight = header.offsetHeight;
@@ -141,6 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // Event listener for language toggle
       langToggle.addEventListener('click', switchLanguage);
+      
+      // Event listener for theme toggle
+      themeToggle.addEventListener('click', switchTheme);
     }
     
     // Start the app
